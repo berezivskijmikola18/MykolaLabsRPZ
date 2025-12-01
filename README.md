@@ -8,7 +8,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=berezivskijmikola18_MykolaLabsRPZ&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=berezivskijmikola18_MykolaLabsRPZ)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=berezivskijmikola18_MykolaLabsRPZ&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=berezivskijmikola18_MykolaLabsRPZ)
 
-
+ 
 Цей репозиторій використовується для курсу **реінжиніринг ПЗ**. 
 Мета — провести комплексний реінжиніринг спадкового коду NetSdrClient, включаючи рефакторинг архітектури, покращення якості коду, впровадження сучасних практик розробки та автоматизацію процесів контролю якості через CI/CD пайплайни.
 
