@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSdrClientAppTests", "Net
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoServer", "EchoTcpServer\EchoServer.csproj", "{9179F2F7-EBEE-4A5D-9FD9-F6E3C18DD263}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoServerTests", "EchoServerTests\EchoServerTests.csproj", "{3ADF2E3E-956C-4247-AC31-DF0E923F3136}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,15 @@ Global
 		{9179F2F7-EBEE-4A5D-9FD9-F6E3C18DD263}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9179F2F7-EBEE-4A5D-9FD9-F6E3C18DD263}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9179F2F7-EBEE-4A5D-9FD9-F6E3C18DD263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADF2E3E-956C-4247-AC31-DF0E923F3136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADF2E3E-956C-4247-AC31-DF0E923F3136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADF2E3E-956C-4247-AC31-DF0E923F3136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADF2E3E-956C-4247-AC31-DF0E923F3136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E89AAAFE-72B4-47B1-B74F-F56096B8754D}
 	EndGlobalSection
 EndGlobal
