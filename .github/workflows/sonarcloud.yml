@@ -59,11 +59,10 @@ jobs:
           /k:"berezivskijmikola18_MykolaLabsRPZ" `
           /o:"berezivskijmikola18" `
           /d:sonar.token="${{ secrets.SONAR_TOKEN }}" `
-          /d:sonar.cs.opencover.reportsPaths="**/coverage.xml" `
+          /d:sonar.cs.opencover.reportsPaths="**/coverage.xml,**/coverage_Echo.xml" `
           /d:sonar.cpd.cs.minimumTokens=40 `
           /d:sonar.cpd.cs.minimumLines=5 `
           /d:sonar.exclusions=**/bin/**,**/obj/**,**/sonarcloud.yml `
-          /d:sonar.qualitygate.wait=true
         shell: pwsh
       # 2) BUILD & TEST
       - name: Restore
@@ -75,6 +74,10 @@ jobs:
           dotnet test NetSdrClientAppTests/NetSdrClientAppTests.csproj -c Release --no-build `
             /p:CollectCoverage=true `
             /p:CoverletOutput=TestResults/coverage.xml `
+            /p:CoverletOutputFormat=opencover
+          dotnet test EchoServerTests/EchoServerTests.csproj -c Release --no-build `
+            /p:CollectCoverage=true `
+            /p:CoverletOutput=TestResults/coverage_Echo.xml `
             /p:CoverletOutputFormat=opencover
         shell: pwsh
       # 3) END: SonarScanner
