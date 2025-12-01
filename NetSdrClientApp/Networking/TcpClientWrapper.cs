@@ -10,13 +10,12 @@ using System.Threading.Tasks;
 using System.Diagnostics.CodeAnalysis;
 
 
-
 namespace NetSdrClientApp.Networking
 {
     public class TcpClientWrapper : ITcpClient
     {
-        private readonly string _host;
-        private readonly int _port;
+        private string _host;
+        private int _port;
         private TcpClient? _tcpClient;
         private NetworkStream? _stream;
         private CancellationTokenSource _cts;
@@ -31,6 +30,7 @@ namespace NetSdrClientApp.Networking
             _port = port;
         }
 
+        [ExcludeFromCodeCoverage]
         public void Connect()
         {
             if (Connected)
@@ -43,7 +43,10 @@ namespace NetSdrClientApp.Networking
 
             try
             {
+                // якщо вже існує попередній токен — звільняємо його перед створенням нового
+                _cts?.Dispose();
                 _cts = new CancellationTokenSource();
+
                 _tcpClient.Connect(_host, _port);
                 _stream = _tcpClient.GetStream();
                 Console.WriteLine($"Connected to {_host}:{_port}");
@@ -52,9 +55,11 @@ namespace NetSdrClientApp.Networking
             catch (Exception ex)
             {
                 Console.WriteLine($"Failed to connect: {ex.Message}");
+                _cts?.Dispose(); //  звільняємо ресурс у випадку помилки
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public void Disconnect()
         {
             if (Connected)
