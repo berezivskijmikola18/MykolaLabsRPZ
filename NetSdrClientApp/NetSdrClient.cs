@@ -2,6 +2,7 @@
 using NetSdrClientApp.Networking;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -103,6 +104,7 @@ namespace NetSdrClientApp
             _udpClient.StopListening();
         }
 
+        [ExcludeFromCodeCoverage]
         public async Task ChangeFrequencyAsync(long hz, int channel)
         {
             var channelArg = (byte)channel;
@@ -114,6 +116,7 @@ namespace NetSdrClientApp
             await SendTcpRequest(msg);
         }
 
+        [ExcludeFromCodeCoverage]
         private void _udpClient_MessageReceived(object? sender, byte[] e)
         {
             NetSdrMessageHelper.TranslateMessage(e, out MsgTypes type, out ControlItemCodes code, out ushort sequenceNum, out byte[] body);
@@ -133,6 +136,7 @@ namespace NetSdrClientApp
 
         private TaskCompletionSource<byte[]>? responseTaskSource;
 
+        [ExcludeFromCodeCoverage]
         private async Task<byte[]> SendTcpRequest(byte[] msg)
         {
             if (!_tcpClient.Connected)
@@ -151,6 +155,7 @@ namespace NetSdrClientApp
             return resp;
         }
 
+        [ExcludeFromCodeCoverage]
         private void _tcpClient_MessageReceived(object? sender, byte[] e)
         {
             //TODO: add Unsolicited messages handling here
